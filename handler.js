@@ -1514,25 +1514,6 @@ export async function participantsUpdate({id, participants, action}) {
   }
 }
 
-this.sendMessage(id, {
-                        text: text,
-                        contextInfo: {
-                        mentionedJid: [user],
-                        externalAdReply: {
-                        title: "ᴛʜᴇ ɢᴜʀᴜ-ʙᴏᴛ",
-                        body: "welcome to Group",
-                        thumbnailUrl: welcomeApiUrl,
-                        sourceUrl: 'https://chat.whatsapp.com/BFfD1C0mTDDDfVdKPkxRAA',
-                        mediaType: 1,
-                        renderLargerThumbnail: true
-                        }}})
-                  } catch (error) {
-                    console.error(`Error generating welcome image: ${error}`);
-                  }
-                }
-              }
-            }
-            break;
 /**
  * Handle groups update
  * @param {import('@whiskeysockets/baileys').BaileysEventMap<unknown>['groups.update']} groupsUpdate

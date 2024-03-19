@@ -931,7 +931,6 @@ export async function handler(chatUpdate) {
         global.db.data.chats[m.chat] = {};
       }
       if (chat) {
-	if (!('antiPrivate' in settings)) settings.antiPrivate = true; 
         if (!('isBanned' in chat)) chat.isBanned = false;
         if (!('welcome' in chat)) chat.welcome = true;
         if (!('detect' in chat)) chat.detect = true;
@@ -1527,6 +1526,13 @@ this.sendMessage(id, {
                         mediaType: 1,
                         renderLargerThumbnail: true
                         }}})
+                  } catch (error) {
+                    console.error(`Error generating welcome image: ${error}`);
+                  }
+                }
+              }
+            }
+            break;
 /**
  * Handle groups update
  * @param {import('@whiskeysockets/baileys').BaileysEventMap<unknown>['groups.update']} groupsUpdate

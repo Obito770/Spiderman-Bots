@@ -9,16 +9,16 @@ if (!text) throw `*🤔Que esta buscado? 🤔*\n*Ingrese el nombre del la canci�
 try {
 const yt_play = await search(args.join(" "))
 let additionalText = ''
-if (command === 'play') {
+if (command === 'شغل') {
 additionalText = 'audio 🔊'
-} else if (command === 'play2') {
+} else if (command === 'فيديو') {
 additionalText = 'video 🎥'}
 await conn.sendMessage(m.chat, {
 text: `${yt_play[0].title}
 *⇄ㅤ     ◁   ㅤ  ❚❚ㅤ     ▷ㅤ     ↻*
 
-*⏰ Duración:* ${secondString(yt_play[0].duration.seconds)}
-*👉🏻Aguarde un momento en lo que envío su ${additionalText}*`, 
+*⏰ المدة:* ${secondString(yt_play[0].duration.seconds)}
+*👉🏻انتظر لحظة حتى أرسل ${additionalText}* *انت مسؤل عن ذنوب اغانيك*`, 
 contextInfo: {
 externalAdReply: {
 title: yt_play[0].title,
@@ -28,7 +28,7 @@ mediaType: 1,
 showAdAttribution: true,
 renderLargerThumbnail: true
 }}} , { quoted: m })
-if (command == 'play') {	
+if (command == 'شغل') {	
 try {
 let q = '128kbps'
 let v = yt_play[0].url
@@ -72,7 +72,7 @@ renderLargerThumbnail: true
 } catch {
 }}}}}
 }  
-if (command == 'play2') {
+if (command == 'فيديو') {
 try {
 let qu = '360'
 let q = qu + 'p'
@@ -98,7 +98,7 @@ await conn.sendMessage(m.chat, { video: { url: n2 }, fileName: `${n}.mp4`, mimet
 } catch {
 }}}}} catch {
 }}
-handler.command = ['play', 'play2']
+handler.command = ['شغل', 'فيديو']
 handler.exp = 0
 export default handler
 

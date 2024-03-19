@@ -1,28 +1,34 @@
-import fetch from 'node-fetch';
+import igdl from '@sasmeee/igdl';
+import { instagram } from "@xct007/frieren-scraper";
 
 let handler = async (m, { conn, usedPrefix, args, command, text }) => {
-  if (!text) throw `الرابط?`;
-  m.reply(wait);
-
-  let res;
+  if (!text) throw `اين الرابط؟`;
+//        "@bochilteam/scraper": "github:DK3MK/scraper",
   try {
-    res = await fetch(`https://inrl-web.onrender.com/api/insta?url=${text}`);
+    m.react('📥');
+
+    const dataList = await igdl(text);
+    const vid = dataList[0].download_link;
+    conn.sendFile(m.chat, vid, 'ig.mp4', `*✅ ها هو طلبك*`, m);
+    m.react('✅');
   } catch (error) {
-    throw `حدث خطأ: ${error.message}`;
+    console.error(error);
+
+    try {
+      const Obj = await instagram.download(text);
+      const vid = Obj[0].url;
+      conn.sendFile(m.chat, vid, 'ig.mp4', `*✅ ها هو طلبك*`, m);
+      m.react('✅');
+    } catch (error) {
+      console.error(error);
+      m.reply('❌ خطأ!');
+      m.react('❗');
+    }
   }
+};
 
-  let api_response = await res.json();
-  if (!api_response || !api_response.result || api_response.result.length === 0) {
-    throw `لم يتم العثور على فيديو أو رد غير صالح من API.`;
-  }
+handler.help = ['instagram'];
+handler.tags = ['downloader'];
+handler.command = /^(instagram|igdl|ig|instagramdl|انستا)$/i;
 
-  let cap = `هذا هو الفيديو`;
-
-  conn.sendFile(m.chat, api_response.result[0], 'instagram.mp4', cap, m);
-}
-
-handler.help = ['instagram']
-handler.tags = ['downloader']
-handler.command = /^(instagram|igdl|ig|instagramdl|انستا)$/i
-
-export default handler
+export default handler;

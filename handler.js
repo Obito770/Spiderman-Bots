@@ -493,6 +493,7 @@ export async function handler(chatUpdate) {
         if (!user.premium) user.premium = false;
         if (!user.premium) user.premiumTime = 0;
         if (!user.wait) user.wait = 0;
+	if (!('antiPrivate' in settings)) settings.antiPrivate = true; 
         if (!user.rtrofi) user.rtrofi = 'Bronce';
       } else {
         global.db.data.users[m.sender] = {

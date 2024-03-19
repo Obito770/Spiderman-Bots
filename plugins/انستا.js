@@ -62,8 +62,7 @@ handler.limit = 0
 handler.help = ['instagram <link ig>']
 handler.tags = ['downloader']
 handler.command =/^(instagram|انستا)$/i
-//handler.limit = 2
-handler.register = true
+handler.limit = 2
 export default handler;
 
 const getBuffer = async (url, options) => {

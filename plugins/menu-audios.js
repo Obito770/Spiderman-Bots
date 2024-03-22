@@ -9,7 +9,7 @@ let handler = async (m, { conn, usedPrefix, usedPrefix: _p, __dirname, text, isP
 try {
 let vn = './media/menu.mp3'
 let pp = imagen4
-let img = await(await fetch('https://chat.whatsapp.com/FZrtNMezysq24t3GPt6oxE')).buffer()
+let img = await(await fetch('https://telegra.ph/file/cafd9e7934fd98f2dc7a8.jpg')).buffer()
 let d = new Date(new Date + 3600000)
 let locale = 'ar'
 let week = d.toLocaleDateString(locale, { weekday: 'long' })
@@ -315,11 +315,11 @@ mentionedJid: [m.sender],
 externalAdReply: {
 showAdAttribution: true,
 mediaType: 'VIDEO',
-mediaUrl: null,
+mediaUrl: `https://chat.whatsapp.com/FZrtNMezysq24t3GPt6oxE`,
 title: '『👑┇miku┇🤖┇Bot┇👑』',
 body: null,
 thumbnail: img,
-sourceUrl: `https://chat.whatsapp.com/FZrtNMezysq24t3GPt6oxE`
+sourceUrl: `https://telegra.ph/file/cafd9e7934fd98f2dc7a8.jpg`
 }}}
 conn.sendMessage(m.chat, buttonMessage, { quoted: m })
 //await conn.sendFile(m.chat, vn, 'menu.mp3', null, m, true, { type: 'audioMessage', ptt: true})

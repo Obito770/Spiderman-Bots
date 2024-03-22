@@ -315,11 +315,11 @@ mentionedJid: [m.sender],
 externalAdReply: {
 showAdAttribution: true,
 mediaType: 'VIDEO',
-mediaUrl: `https://chat.whatsapp.com/FZrtNMezysq24t3GPt6oxE`,
+mediaUrl: null,
 title: '『👑┇miku┇🤖┇Bot┇👑』',
 body: null,
 thumbnail: img,
-sourceUrl: `https://telegra.ph/file/cafd9e7934fd98f2dc7a8.jpg`
+sourceUrl: `https://chat.whatsapp.com/FZrtNMezysq24t3GPt6oxE`
 }}}
 conn.sendMessage(m.chat, buttonMessage, { quoted: m })
 //await conn.sendFile(m.chat, vn, 'menu.mp3', null, m, true, { type: 'audioMessage', ptt: true})

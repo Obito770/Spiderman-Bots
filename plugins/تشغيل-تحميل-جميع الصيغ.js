@@ -317,7 +317,6 @@ thumbnail: await (await fetch(vid.thumbnail)).buffer()}}}, { quoted: m })
 handler.help = ["تشغيل"].map(v => v + " <formato> <búsqueda>")
 handler.tags = ["downloader"]
 handler.command = ['تشغيل']
-handler.register = true 
 handler.star = 2
 export default handler
 			
